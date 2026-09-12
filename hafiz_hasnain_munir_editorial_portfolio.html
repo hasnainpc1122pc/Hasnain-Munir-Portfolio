@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hafiz Hasnain Munir — Portfolio Presentation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        editorial: {
+                            red: '#8B1E24',
+                            darkred: '#6A151A',
+                            deepest: '#4A0D11',
+                            cream: '#F4EFEA',
+                            lightcream: '#FAF7F2',
+                            sand: '#E6DDD0',
+                            charcoal: '#222222',
+                            muted: '#666360'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #F4EFEA;
+            color: #222222;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Custom editorial scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F4EFEA;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #8B1E24;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6A151A;
+        }
+        .slide-card {
+            background: #FAF7F2;
+            border: 1px solid #E6DDD0;
+            transition: all 0.3s ease;
+        }
+        .slide-card:hover {
+            box-shadow: 0 15px 35px -10px rgba(139, 30, 36, 0.12);
+            border-color: #8B1E24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 20px 40px -15px rgba(74, 13, 17, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-editorial-cream text-editorial-charcoal antialiased selection:bg-editorial-red selection:text-white">
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-editorial-cream/90 backdrop-blur-md border-b border-editorial-sand">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="font-serif text-xl font-bold tracking-tight text-editorial-darkred flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-editorial-red inline-block"></span>
+                Hafiz Hasnain Munir
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold tracking-widest uppercase text-editorial-muted">
+                <a href="#cover" class="hover:text-editorial-red transition-colors">Cover</a>
+                <a href="#about" class="hover:text-editorial-red transition-colors">About Me</a>
+                <a href="#experience" class="hover:text-editorial-red transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-editorial-red transition-colors">Projects</a>
+                <a href="#skills" class="hover:text-editorial-red transition-colors">Expertise</a>
+                <a href="#education" class="hover:text-editorial-red transition-colors">Education</a>
+                <a href="#contact" class="hover:text-editorial-red transition-colors">Contact</a>
+            </nav>
+
+            <!-- Quick WhatsApp CTA -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="https://wa.me/923296970743" target="_blank" class="px-5 py-2.5 rounded-full bg-editorial-red hover:bg-editorial-darkred text-white font-medium text-xs uppercase tracking-wider transition-all shadow-md flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-sm"></i> Connect
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="lg:hidden text-editorial-darkred focus:outline-none p-2">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-editorial-lightcream border-b border-editorial-sand px-6 py-4 space-y-3 shadow-xl">
+            <a href="#cover" class="block text-editorial-charcoal hover:text-editorial-red py-1 text-sm font-semibold uppercase tracking-wider">Cover</a>
+            <a href="#about" class="block text-editorial-charcoal hover:text-editorial-red py-1 text-sm font-semibold uppercase tracking-wider">About Me</a>
+            <a href="#experience" class="block text-editorial-charcoal hover:text-editorial-red py-1 text-sm font-semibold uppercase tracking-wider">Experience</a>
+            <a href="#projects" class="block text-editorial-charcoal hover:text-editorial-red py-1 text-sm font-semibold uppercase tracking-wider">Projects</a>
+            <a href="#skills" class="block text-editorial-charcoal hover:text-editorial-red py-1 text-sm font-semibold uppercase tracking-wider">Expertise</a>
+            <a href="#education" class="block text-editorial-charcoal hover:text-editorial-red py-1 text-sm font-semibold uppercase tracking-wider">Education</a>
+            <a href="#contact" class="block text-editorial-charcoal hover:text-editorial-red py-1 text-sm font-semibold uppercase tracking-wider">Contact</a>
+            <div class="pt-3">
+                <a href="https://wa.me/923296970743" target="_blank" class="w-full py-2.5 rounded-lg bg-editorial-red text-white font-medium text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp Me
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Slide 1: Cover / Hero Slide -->
+    <section id="cover" class="pt-28 pb-16 px-4 sm:px-8 max-w-7xl mx-auto min-h-screen flex items-center">
+        <div class="w-full bg-editorial-red rounded-3xl overflow-hidden editorial-shadow text-white grid grid-cols-1 lg:grid-cols-12">
+            <!-- Left Text Content -->
+            <div class="lg:col-span-7 p-8 sm:p-14 lg:p-20 flex flex-col justify-between">
+                <div>
+                    <span class="inline-block uppercase tracking-widest text-xs font-bold text-editorial-cream/80 mb-4 bg-white/10 px-3.5 py-1.5 rounded-full backdrop-blur-sm">
+                        Creative Strategist & B2B Specialist • Sialkot, Pakistan
+                    </span>
+                    <h1 class="font-serif text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight mb-6 leading-none">
+                        PORT<span class="font-serif italic font-normal text-editorial-cream">fo</span>LIO
+                    </h1>
+                    <p class="text-editorial-cream/90 text-base sm:text-xl font-light tracking-wide max-w-xl leading-relaxed mb-8">
+                        Bridging international buyers and manufacturing managers with commercial acumen, apparel product expertise, and high-end creative design workflows.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-4 pt-6 border-t border-white/15">
+                    <a href="#about" class="px-7 py-3.5 rounded-xl bg-white text-editorial-red font-bold text-xs uppercase tracking-widest hover:bg-editorial-cream transition-all shadow-lg flex items-center gap-2">
+                        Explore Deck <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="https://wa.me/923296970743" target="_blank" class="px-7 py-3.5 rounded-xl bg-editorial-darkred text-white font-bold text-xs uppercase tracking-widest hover:bg-editorial-deepest transition-all border border-white/20 flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-green-400 text-base"></i> WhatsApp Direct
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Visual Block -->
+            <div class="lg:col-span-5 relative bg-editorial-darkred/40 flex items-center justify-center p-8 lg:p-12 min-h-[350px]">
+                <div class="absolute inset-0 bg-gradient-to-t from-editorial-deepest/60 to-transparent"></div>
+                <div class="relative z-10 text-center space-y-4">
+                    <div class="w-32 h-32 mx-auto rounded-full bg-editorial-cream/10 border-2 border-white/20 flex items-center justify-center text-4xl font-serif font-bold text-editorial-cream shadow-2xl">
+                        HM
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-2xl font-bold tracking-wide">Hafiz Hasnain Munir</h3>
+                        <p class="text-xs tracking-widest uppercase text-editorial-cream/70 mt-1">Age 19 • ICS Qualified</p>
+                    </div>
+                    <div class="flex justify-center gap-3 pt-2">
+                        <a href="mailto:hasnainpc1122@gmail.com" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-colors" title="Email">
+                            <i class="fa-solid fa-envelope text-sm"></i>
+                        </a>
+                        <a href="https://instagram.com/hasnainmunirr" target="_blank" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-colors" title="Instagram">
+                            <i class="fa-brands fa-instagram text-sm"></i>
+                        </a>
+                        <a href="https://wa.me/923296970743" target="_blank" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-colors" title="WhatsApp">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 2: About Me Presentation -->
+    <section id="about" class="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            <!-- Left Header Red Block -->
+            <div class="lg:col-span-5 bg-editorial-red rounded-3xl p-10 lg:p-14 text-white flex flex-col justify-between editorial-shadow">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-editorial-cream/80 font-bold block mb-3">Slide 02</span>
+                    <h2 class="font-serif text-4xl sm:text-6xl font-bold tracking-tight mb-6">ABOUT ME</h2>
+                    <p class="text-editorial-cream/90 text-sm sm:text-base leading-relaxed">
+                        Transforming ideas into professional commercial execution, combining precision in international apparel trade with high-end digital design and content creation.
+                    </p>
+                </div>
+                <div class="mt-8 pt-6 border-t border-white/20">
+                    <p class="text-xs uppercase tracking-wider text-editorial-cream/70 font-semibold">Location</p>
+                    <p class="font-serif text-lg">Sialkot, Pakistan</p>
+                </div>
+            </div>
+
+            <!-- Right Content Details Card -->
+            <div class="lg:col-span-7 slide-card rounded-3xl p-8 sm:p-12 flex flex-col justify-center shadow-sm">
+                <div class="space-y-6 text-editorial-charcoal">
+                    <p class="text-base sm:text-lg leading-relaxed font-normal">
+                        I am a young, driven professional with practical experience spanning <strong class="text-editorial-red font-semibold">B2B sales, apparel product development, graphic design, content creation, digital marketing, and client communication</strong>.
+                    </p>
+                    <p class="text-base sm:text-lg leading-relaxed font-normal">
+                        My core strength lies in understanding customer requirements, communicating clearly with international buyers, converting their complex ideas and references into precise product requirements, and coordinating those requirements seamlessly with makers and manufacturing managers.
+                    </p>
+                    <p class="text-base sm:text-lg leading-relaxed font-normal">
+                        Alongside commercial sales, I possess robust creative skills in graphic design, apparel mockups, video editing, and content strategy—allowing me to operate effectively across both the commercial revenue and creative branding sides of modern business.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: Experiences Presentation -->
+    <section id="experience" class="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
+        <!-- Section Header Card -->
+        <div class="bg-editorial-darkred rounded-3xl p-10 sm:p-14 text-white mb-8 editorial-shadow flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div>
+                <span class="text-xs uppercase tracking-widest text-editorial-cream/80 font-bold block mb-2">Slide 03</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-bold tracking-tight">MY EXPERIENCES</h2>
+            </div>
+            <div class="max-w-md text-editorial-cream/80 text-sm leading-relaxed">
+                Proven track record in international apparel coordination, brand development, content production, and CRM workflow structuring.
+            </div>
+        </div>
+
+        <!-- Experience Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- JMS Industries -->
+            <div class="slide-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-editorial-red/10 text-editorial-red">B2B Sales & Coordination</span>
+                        <span class="text-xs text-editorial-muted font-semibold">Active Role</span>
+                    </div>
+                    <h3 class="font-serif text-2xl sm:text-3xl font-bold text-editorial-charcoal mb-4">JMS Industries</h3>
+                    <p class="text-editorial-muted text-sm sm:text-base leading-relaxed mb-6">
+                        Working directly with international buyers in the apparel industry. Handling inquiries, understanding product requirements, communicating with buyers, preparing product information, managing follow-ups, discussing pricing, and coordinating customer requirements with floor makers and manufacturing managers.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-editorial-sand/60">
+                    <span class="text-xs px-2.5 py-1 rounded bg-editorial-sand/50 text-editorial-charcoal">Alibaba Sales</span>
+                    <span class="text-xs px-2.5 py-1 rounded bg-editorial-sand/50 text-editorial-charcoal">Buyer Negotiation</span>
+                    <span class="text-xs px-2.5 py-1 rounded bg-editorial-sand/50 text-editorial-charcoal">Factory Coordination</span>
+                </div>
+            </div>
+
+            <!-- Vaynex Apparel -->
+            <div class="slide-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-editorial-red/10 text-editorial-red">Brand Development</span>
+                        <span class="text-xs text-editorial-muted font-semibold">Apparel Concept</span>
+                    </div>
+                    <h3 class="font-serif text-2xl sm:text-3xl font-bold text-editorial-charcoal mb-4">Vaynex Apparel</h3>
+                    <p class="text-editorial-muted text-sm sm:text-base leading-relaxed mb-6">
+                        Working on comprehensive apparel brand development, product concepts, visual identity, graphic design, and strategic brand positioning in competitive global markets.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-editorial-sand/60">
+                    <span class="text-xs px-2.5 py-1 rounded bg-editorial-sand/50 text-editorial-charcoal">Visual Identity</span>
+                    <span class="text-xs px-2.5 py-1 rounded bg-editorial-sand/50 text-editorial-charcoal">Apparel Design</span>
+                    <span class="text-xs px-2.5 py-1 rounded bg-editorial-sand/50 text-editorial-charcoal">Brand Positioning</span>
+                </div>
+            </div>
+
+            <!-- Hostelwaly.pk -->
+            <div class="slide-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-editorial-red/10 text-editorial-red">Content & Social Media</span>
+                        <span class="text-xs text-editorial-muted font-semibold">Media Production</span>
+                    </div>
+                    <h3 class="font-serif text-2xl sm:text-3xl font-bold text-editorial-charcoal mb-4">Hostelwaly.pk</h3>
+                    <p class="text-editorial-muted text-sm sm:text-base leading-relaxed mb-6">
+                        Leading short-form content production, social media concepts, audience engagement, content strategy, and organic social media growth across digital channels.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-editorial-sand/60">
+                    <span class="text-xs px-2.5 py-1 rounded bg-editorial-sand/50 text-editorial-charcoal">Short-Form Video</span>
+                    <span class="text-xs px-2.5 py-1 rounded bg-editorial-sand/50 text-editorial-charcoal">Hook Writing</span>
+                    <span class="text-xs px-2.5 py-1 rounded bg-editorial-sand/50 text-editorial-charcoal">Audience Growth</span>
+                </div>
+            </div>
+
+            <!-- CRM & Business Systems -->
+            <div class="slide-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-editorial-red/10 text-editorial-red">Digital Systems</span>
+                        <span class="text-xs text-editorial-muted font-semibold">Process Optimization</span>
+                    </div>
+                    <h3 class="font-serif text-2xl sm:text-3xl font-bold text-editorial-charcoal mb-4">CRM & Business Systems</h3>
+                    <p class="text-editorial-muted text-sm sm:text-base leading-relaxed mb-6">
+                        Working on structured CRM concepts and digital systems for managing leads, customer information, follow-up timelines, interactions, and sales pipelines efficiently.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-editorial-sand/60">
+                    <span class="text-xs px-2.5 py-1 rounded bg-editorial-sand/50 text-editorial-charcoal">Lead Management</span>
+                    <span class="text-xs px-2.5 py-1 rounded bg-editorial-sand/50 text-editorial-charcoal">Pipeline Tracking</span>
+                    <span class="text-xs px-2.5 py-1 rounded bg-editorial-sand/50 text-editorial-charcoal">Workflow Setup</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: Projects & Expertise Breakdown -->
+    <section id="projects" class="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="bg-editorial-red rounded-3xl p-10 sm:p-14 text-white mb-8 editorial-shadow">
+            <span class="text-xs uppercase tracking-widest text-editorial-cream/80 font-bold block mb-2">Slide 04</span>
+            <h2 class="font-serif text-4xl sm:text-5xl font-bold tracking-tight mb-4">PROJECTS & SKILLS BREAKDOWN</h2>
+            <p class="text-editorial-cream/90 text-sm sm:text-base max-w-2xl leading-relaxed">
+                Core competency breakdown across B2B sales, apparel product realization, creative graphic design, and multimedia content creation.
+            </p>
+        </div>
+
+        <!-- 4 Column Grid for Core Domains -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Domain 1 -->
+            <div class="slide-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-editorial-red/10 text-editorial-red flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-editorial-charcoal mb-3">01 — B2B Sales</h3>
+                    <p class="text-editorial-muted text-xs leading-relaxed mb-6">
+                        Driving Alibaba sales, lead generation, buyer qualification, pipeline management, cold outreach, price negotiation, and closing international deals.
+                    </p>
+                </div>
+                <div class="space-y-1.5 pt-4 border-t border-editorial-sand/60 text-xs text-editorial-charcoal font-medium">
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-editorial-red"></i> Alibaba B2B Sales</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-editorial-red"></i> Buyer Qualification</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-editorial-red"></i> Pipeline Management</div>
+                </div>
+            </div>
+
+            <!-- Domain 2 -->
+            <div class="slide-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-editorial-red/10 text-editorial-red flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-editorial-charcoal mb-3">02 — Apparel Dev</h3>
+                    <p class="text-editorial-muted text-xs leading-relaxed mb-6">
+                        Translating buyer reference images and techpacks into crystal-clear instructions for floor makers and manufacturing managers.
+                    </p>
+                </div>
+                <div class="space-y-1.5 pt-4 border-t border-editorial-sand/60 text-xs text-editorial-charcoal font-medium">
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-editorial-red"></i> Techpack Understanding</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-editorial-red"></i> Maker Coordination</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-editorial-red"></i> Sample Follow-ups</div>
+                </div>
+            </div>
+
+            <!-- Domain 3 -->
+            <div class="slide-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-editorial-red/10 text-editorial-red flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-editorial-charcoal mb-3">03 — Creative Design</h3>
+                    <p class="text-editorial-muted text-xs leading-relaxed mb-6">
+                        Crafting sublimation artwork, garment mockups, apparel graphics, and custom prints using industry-standard design tools.
+                    </p>
+                </div>
+                <div class="space-y-1.5 pt-4 border-t border-editorial-sand/60 text-xs text-editorial-charcoal font-medium">
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-editorial-red"></i> Photoshop & Illustrator</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-editorial-red"></i> Sublimation Designs</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-editorial-red"></i> Garment Mockups</div>
+                </div>
+            </div>
+
+            <!-- Domain 4 -->
+            <div class="slide-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-editorial-red/10 text-editorial-red flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-editorial-charcoal mb-3">04 — Content & Mktg</h3>
+                    <p class="text-editorial-muted text-xs leading-relaxed mb-6">
+                        Producing engaging short-form content, Reels, TikToks, YouTube Shorts, brand positioning, and social media growth strategies.
+                    </p>
+                </div>
+                <div class="space-y-1.5 pt-4 border-t border-editorial-sand/60 text-xs text-editorial-charcoal font-medium">
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-editorial-red"></i> Short-Form Video</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-editorial-red"></i> Hook Writing</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-editorial-red"></i> Instagram Marketing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: Education & Tools Deck -->
+    <section id="education" class="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Education Presentation Card -->
+            <div class="slide-card rounded-3xl p-8 sm:p-12 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-editorial-red/10 text-editorial-red">Slide 05</span>
+                        <span class="text-xs text-editorial-muted font-semibold">Academic Background</span>
+                    </div>
+                    <h3 class="font-serif text-3xl font-bold text-editorial-charcoal mb-6">Education & Learning</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="p-5 rounded-2xl bg-editorial-cream border border-editorial-sand">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-serif text-lg font-bold text-editorial-charcoal">Intermediate in Computer Science (ICS)</h4>
+                                <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-editorial-red text-white">Pakistan</span>
+                            </div>
+                            <p class="text-editorial-muted text-xs">Solid foundation in computer science fundamentals and modern technology.</p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-editorial-cream border border-editorial-sand">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-serif text-lg font-bold text-editorial-charcoal">Matriculation</h4>
+                                <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-editorial-darkred text-white">Pakistan</span>
+                            </div>
+                            <p class="text-editorial-muted text-xs">Strong academic grounding in core disciplines.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 pt-6 border-t border-editorial-sand">
+                    <p class="text-xs uppercase tracking-wider text-editorial-muted font-semibold mb-3">Continuous Upskilling</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-full bg-editorial-cream text-xs text-editorial-charcoal font-medium border border-editorial-sand">Digital Marketing</span>
+                        <span class="px-3 py-1 rounded-full bg-editorial-cream text-xs text-editorial-charcoal font-medium border border-editorial-sand">B2B Sales</span>
+                        <span class="px-3 py-1 rounded-full bg-editorial-cream text-xs text-editorial-charcoal font-medium border border-editorial-sand">AI Tools</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Toolkit Presentation Card -->
+            <div class="slide-card rounded-3xl p-8 sm:p-12 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-editorial-red/10 text-editorial-red">Toolkit</span>
+                        <span class="text-xs text-editorial-muted font-semibold">Software & Platforms</span>
+                    </div>
+                    <h3 class="font-serif text-3xl font-bold text-editorial-charcoal mb-6">Tools & Technology</h3>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-editorial-red mb-3"><i class="fa-solid fa-pen-nib mr-2"></i> Design Suite</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 rounded-xl bg-editorial-cream text-xs font-medium border border-editorial-sand text-editorial-charcoal">Adobe Photoshop</span>
+                                <span class="px-3 py-1.5 rounded-xl bg-editorial-cream text-xs font-medium border border-editorial-sand text-editorial-charcoal">Adobe Illustrator</span>
+                                <span class="px-3 py-1.5 rounded-xl bg-editorial-cream text-xs font-medium border border-editorial-sand text-editorial-charcoal">CorelDRAW</span>
+                                <span class="px-3 py-1.5 rounded-xl bg-editorial-cream text-xs font-medium border border-editorial-sand text-editorial-charcoal">Canva</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-editorial-red mb-3"><i class="fa-solid fa-briefcase mr-2"></i> Sales & CRM</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 rounded-xl bg-editorial-cream text-xs font-medium border border-editorial-sand text-editorial-charcoal">Alibaba B2B Platform</span>
+                                <span class="px-3 py-1.5 rounded-xl bg-editorial-cream text-xs font-medium border border-editorial-sand text-editorial-charcoal">CRM Management Systems</span>
+                                <span class="px-3 py-1.5 rounded-xl bg-editorial-cream text-xs font-medium border border-editorial-sand text-editorial-charcoal">Instagram Outreach</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-editorial-sand">
+                    <div class="flex items-center justify-between text-xs text-editorial-muted">
+                        <span><i class="fa-solid fa-brain mr-1 text-editorial-red"></i> AI-Assisted Creative Workflows</span>
+                        <span>Global Remote Ready</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Contact & Thank You Slide -->
+    <section id="contact" class="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="bg-editorial-darkred rounded-3xl p-10 sm:p-20 text-white editorial-shadow relative overflow-hidden text-center">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            
+            <div class="relative z-10 max-w-3xl mx-auto">
+                <span class="text-xs uppercase tracking-widest text-editorial-cream/80 font-bold block mb-4">Slide 06 • Let's Connect</span>
+                <h2 class="font-serif text-5xl sm:text-7xl font-black tracking-tight mb-6">THANK YOU</h2>
+                <p class="text-editorial-cream/90 text-base sm:text-xl font-light mb-12 leading-relaxed">
+                    Let’s create something meaningful together. Reach out for B2B sales collaboration, apparel development, or creative design projects.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12 text-left">
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/923296970743" target="_blank" class="bg-white/10 hover:bg-white/20 border border-white/15 rounded-2xl p-6 transition-all group">
+                        <div class="w-10 h-10 rounded-xl bg-green-500/20 text-green-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <span class="text-xs uppercase tracking-wider text-editorial-cream/70 block mb-1">WhatsApp Direct</span>
+                        <span class="text-white font-semibold text-sm">0329 6970743</span>
+                    </a>
+
+                    <!-- Email -->
+                    <a href="mailto:hasnainpc1122@gmail.com" class="bg-white/10 hover:bg-white/20 border border-white/15 rounded-2xl p-6 transition-all group">
+                        <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-300 flex items-center justify-center text-lg mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <span class="text-xs uppercase tracking-wider text-editorial-cream/70 block mb-1">Email Address</span>
+                        <span class="text-white font-semibold text-xs truncate block">hasnainpc1122@gmail.com</span>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/hasnainmunirr" target="_blank" class="bg-white/10 hover:bg-white/20 border border-white/15 rounded-2xl p-6 transition-all group">
+                        <div class="w-10 h-10 rounded-xl bg-pink-500/20 text-pink-300 flex items-center justify-center text-lg mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <span class="text-xs uppercase tracking-wider text-editorial-cream/70 block mb-1">Instagram</span>
+                        <span class="text-white font-semibold text-sm">@hasnainmunirr</span>
+                    </a>
+                </div>
+
+                <div class="pt-6 border-t border-white/15 text-xs text-editorial-cream/70 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p><i class="fa-solid fa-location-dot mr-1 text-editorial-red"></i> Sialkot, Pakistan • Available Globally</p>
+                    <p>© <span id="current-year"></span> Hafiz Hasnain Munir. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Menu Script & Year -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
